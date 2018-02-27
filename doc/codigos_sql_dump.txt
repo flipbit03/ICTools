@@ -1,0 +1,24 @@
+select 
+	dataInicio, dataFim, DESCRICAOTURNO, 
+	matEmpregado, Nome, CCUSTO, CARGO, 
+	PROJETO_DESC  
+from 
+	VW_HORA_EXTRA_INDUSTRIAL 
+where 
+	tipo = 'Turno' and
+	pkTurno in (2,1) and
+	fl_ativo = 'S' and
+	dataInicio = '2016-10-25'
+order by
+	dataInicio, pkTurno, CARGO, matEmpregado;
+
+
+select 
+	count(matEmpregado)
+from 
+	VW_HORA_EXTRA_INDUSTRIAL 
+where 
+	tipo = 'Turno' and
+	pkTurno in (2,1) and
+	fl_ativo = 'S' and
+	dataInicio = '2016-10-25'
