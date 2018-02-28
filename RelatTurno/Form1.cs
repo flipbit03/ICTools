@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ControleProducaoDAO;
+using System.Reflection;
+using System.Deployment.Application;
 
 
 namespace RelatTurno
@@ -22,6 +24,20 @@ namespace RelatTurno
 
             // Connect to database
             dao = new NCPHoraExtraDevDAO();
+
+            // Get App Version
+            String versionstr;
+            if (ApplicationDeployment.IsNetworkDeployed)
+            {
+                Version v = ApplicationDeployment.CurrentDeployment.CurrentVersion;
+                versionstr = String.Format("RelatTurno {0}.{1}.{2}.{3}", v.Major, v.Minor, v.Build, v.Revision);
+            } else
+            {
+                versionstr = "RelatTurno DEBUG";
+            }
+
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            this.Text = String.Format("Lista de 2o e 1o Turno para Digitação [{0}]", versionstr);
         }
 
         private void button1_Click(object sender, EventArgs e)
