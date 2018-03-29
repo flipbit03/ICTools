@@ -90,12 +90,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NCPControleProducaoDAO\NCPControleProducaoDAO\NCPControleProducaoDAO.csproj">
-      <Project>{139e90fc-540d-43a3-8945-ffb4f9947447}</Project>
-      <Name>NCPControleProducaoDAO</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
@@ -116,6 +110,15 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NCPControleProducaoDAO\NCPControleProducaoDAO.csproj">
+      <Project>{139e90fc-540d-43a3-8945-ffb4f9947447}</Project>
+      <Name>NCPControleProducaoDAO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

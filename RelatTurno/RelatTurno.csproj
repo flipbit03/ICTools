@@ -186,7 +186,7 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NCPControleProducaoDAO\NCPControleProducaoDAO\NCPControleProducaoDAO.csproj">
+    <ProjectReference Include="..\NCPControleProducaoDAO\NCPControleProducaoDAO.csproj">
       <Project>{139e90fc-540d-43a3-8945-ffb4f9947447}</Project>
       <Name>NCPControleProducaoDAO</Name>
     </ProjectReference>
