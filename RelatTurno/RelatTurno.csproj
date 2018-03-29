@@ -16,7 +16,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>P:\IC\ICC\Cadu\Aplicativos ICC\RelatTurno\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
+    <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -24,9 +24,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\ncp-arquivos\A-Public\IC\ICC\Cadu\Aplicativos ICC\RelatTurno\</InstallUrl>
     <UpdateUrl>\\ncp-arquivos\A-Public\IC\ICC\Cadu\Aplicativos ICC\RelatTurno\</UpdateUrl>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -186,6 +186,10 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AssortedUtilities\AssortedUtilities.csproj">
+      <Project>{46d84be4-18e5-47a4-91b1-882b339b4138}</Project>
+      <Name>AssortedUtilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NCPControleProducaoDAO\NCPControleProducaoDAO.csproj">
       <Project>{139e90fc-540d-43a3-8945-ffb4f9947447}</Project>
       <Name>NCPControleProducaoDAO</Name>

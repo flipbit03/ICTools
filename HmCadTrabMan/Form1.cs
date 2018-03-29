@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using System.Deployment.Application;
+
 using ControleProducaoDAOS;
+using ControleProducaoDAOS.DataStructures;
+using AssortedUtilities;
 
 namespace HmCadTrabMan
 {
-    public partial class Form1 : Form
+    public partial class Form1 : AppVersionForm
     {
         ControleProducaoDAO dao;
 
@@ -19,6 +23,8 @@ namespace HmCadTrabMan
         {
             InitializeComponent();
             dao = new ControleProducaoDAO();
+
+            this.Text = String.Format("{0} [{1}]", this.Text, GetAppVersion());
             
         }
 

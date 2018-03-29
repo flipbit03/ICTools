@@ -1,0 +1,131 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ControleProducaoDAOS.Strings
+{
+    internal class CPStrings
+    {
+        public static String sql_hmcadtrabman()
+        {
+            return @"
+            DECLARE @PERIODO AS INT = {0};
+            -------------------------------------------------
+            -- HMCADTRAB
+            -------------------------------------------------
+            select
+	            maq.matricula EQUIPAMENTO, sum(a.qtdHoraMin)/60.0 HM_TOTAL_TRABALHADO
+            from 
+	            PeriodoApropriacao p,
+	            Maquina maq,
+	            Apropriacao a,
+	            Atividade ativ
+            where
+	            -- somente apropriação de MÁQUINA 
+	            a.fkTipoApropriacao = 2
+
+	            -- junte máquinas
+	            and a.fkMaquina = maq.pkMaquina 
+	
+	            -- selecione códigos de atividade especificos
+	            and a.fkAtividade = ativ.pkAtividade
+	            and ativ.codigo in (0, 12, 13, 14, 15, 16, 17, 18, 80)
+
+	            -- escolha o periodo
+	            and a.fkPeriodo = p.pkPeriodo
+	            and p.pkPeriodo = @PERIODO
+
+            group by maq.matricula
+            order by maq.matricula;
+
+            -------------------------------------------------
+            -- HMCADTRAB
+            -------------------------------------------------
+            select
+	            sum(a.qtdHoraMin)/60.0 SOMA_HM_TOTAL_TRABALHADO
+            from 
+	            PeriodoApropriacao p,
+	            Maquina maq,
+	            Apropriacao a,
+	            Atividade ativ
+            where
+	            -- somente apropriação de MÁQUINA 
+	            a.fkTipoApropriacao = 2
+
+	            -- junte máquinas
+	            and a.fkMaquina = maq.pkMaquina 
+	
+	            -- selecione códigos de atividade especificos
+	            and a.fkAtividade = ativ.pkAtividade
+	            and ativ.codigo in (0, 12, 13, 14, 15, 16, 17, 18, 80)
+
+	            -- escolha o periodo
+	            and a.fkPeriodo = p.pkPeriodo
+	            and p.pkPeriodo = @PERIODO;
+
+            -------------------------------------------------
+            -- HMCADMAN
+            -------------------------------------------------
+            select
+	            maq.matricula EQUIPAMENTO, sum(a.qtdHoraMin)/60.0 HM_TOTAL_MANUT
+            from 
+	            PeriodoApropriacao p,
+	            Maquina maq,
+	            Apropriacao a,
+	            Atividade ativ
+            where
+	            -- somente apropriação de MÁQUINA 
+	            a.fkTipoApropriacao = 2
+
+	            -- junte máquinas
+	            and a.fkMaquina = maq.pkMaquina 
+	
+	            -- selecione códigos de atividade especificos
+	            and a.fkAtividade = ativ.pkAtividade
+	            and ativ.codigo in (25)
+
+	            -- escolha o periodo
+	            and a.fkPeriodo = p.pkPeriodo
+	            and p.pkPeriodo = @PERIODO
+
+            group by maq.matricula
+            order by maq.matricula;
+
+            -------------------------------------------------
+            -- HMCADTRAB
+            -------------------------------------------------
+            select
+	            sum(a.qtdHoraMin)/60.0 SOMA_HM_TOTAL_MANUT
+            from 
+	            PeriodoApropriacao p,
+	            Maquina maq,
+	            Apropriacao a,
+	            Atividade ativ
+            where
+	            -- somente apropriação de MÁQUINA 
+	            a.fkTipoApropriacao = 2
+
+	            -- junte máquinas
+	            and a.fkMaquina = maq.pkMaquina 
+	
+	            -- selecione códigos de atividade especificos
+	            and a.fkAtividade = ativ.pkAtividade
+	            and ativ.codigo in (25)
+
+	            -- escolha o periodo
+	            and a.fkPeriodo = p.pkPeriodo
+	            and p.pkPeriodo = @PERIODO;";
+        }
+
+        public static String sql_listaperiodosapropriacao()
+        {
+            return @"
+                select 
+                pkPeriodo, dataInicio, dataFim, dataFechamento, mesReferencia, anoReferencia 
+                from PeriodoApropriacao
+                order by anoReferencia desc, mesReferencia desc;";
+        }
+
+    }
+}

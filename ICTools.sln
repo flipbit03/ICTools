@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HmCadTrabMan", "HmCadTrabMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCPControleProducaoDAO", "NCPControleProducaoDAO\NCPControleProducaoDAO.csproj", "{139E90FC-540D-43A3-8945-FFB4F9947447}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssortedUtilities", "AssortedUtilities\AssortedUtilities.csproj", "{46D84BE4-18E5-47A4-91B1-882B339B4138}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{1486589B-A5C6-43D3-BF68-C55BAE8FECCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +31,16 @@ Global
 		{139E90FC-540D-43A3-8945-FFB4F9947447}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{139E90FC-540D-43A3-8945-FFB4F9947447}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{139E90FC-540D-43A3-8945-FFB4F9947447}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46D84BE4-18E5-47A4-91B1-882B339B4138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46D84BE4-18E5-47A4-91B1-882B339B4138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46D84BE4-18E5-47A4-91B1-882B339B4138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46D84BE4-18E5-47A4-91B1-882B339B4138}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{139E90FC-540D-43A3-8945-FFB4F9947447} = {1486589B-A5C6-43D3-BF68-C55BAE8FECCA}
+		{46D84BE4-18E5-47A4-91B1-882B339B4138} = {1486589B-A5C6-43D3-BF68-C55BAE8FECCA}
 	EndGlobalSection
 EndGlobal

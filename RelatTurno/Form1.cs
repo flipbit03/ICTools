@@ -7,14 +7,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using ControleProducaoDAOS;
 using System.Reflection;
 using System.Deployment.Application;
 
+using ControleProducaoDAOS;
+using AssortedUtilities;
 
 namespace RelatTurno
 {
-    public partial class Form1 : Form
+    public partial class Form1 : AppVersionForm
     {
         private NCPHoraExtraDevDAO dao;
 
@@ -25,19 +26,7 @@ namespace RelatTurno
             // Connect to database
             dao = new NCPHoraExtraDevDAO();
 
-            // Get App Version
-            String versionstr;
-            if (ApplicationDeployment.IsNetworkDeployed)
-            {
-                Version v = ApplicationDeployment.CurrentDeployment.CurrentVersion;
-                versionstr = String.Format("RelatTurno {0}.{1}.{2}.{3}", v.Major, v.Minor, v.Build, v.Revision);
-            } else
-            {
-                versionstr = "RelatTurno DEBUG";
-            }
-
-            Version version = Assembly.GetExecutingAssembly().GetName().Version;
-            this.Text = String.Format("Lista de 2o e 1o Turno para Digitação [{0}]", versionstr);
+            this.Text = String.Format("Lista de 2o e 1o Turno para Digitação [{0}]", GetAppVersion());
         }
 
         private void button1_Click(object sender, EventArgs e)
