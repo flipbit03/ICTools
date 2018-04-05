@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.consultabutton = new System.Windows.Forms.Button();
             this.qtdlabel = new System.Windows.Forms.Label();
@@ -97,6 +98,7 @@
             this.Controls.Add(this.qtdlabel);
             this.Controls.Add(this.consultabutton);
             this.Controls.Add(this.dateTimePicker1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(577, 126);
             this.Name = "Form1";
             this.Text = "Lista de 2o e 1o Turno para Digitação";
