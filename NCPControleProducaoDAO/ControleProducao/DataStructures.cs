@@ -5,6 +5,74 @@ using System.Text;
 
 namespace ControleProducaoDAOS.DataStructures
 {
+    public class SingleApropriadoPorApontadorData
+    {
+        public int matricula { get; set; }
+        public String nome { get; set; }
+        public String funcao { get; set; }
+        public String apontador { get; set; }
+        public String equipe { get; set; }
+    }
+
+    public class ApropriadosPorApontadorData
+    {
+        public List<SingleApropriadoPorApontadorData> data = new List<SingleApropriadoPorApontadorData>();
+
+        public List<String> GetApontadores()
+        {
+            List<String> r = new List<String>();
+            foreach(SingleApropriadoPorApontadorData ap in data)
+            {
+                if (r.IndexOf(ap.apontador) == -1)
+                {
+                    r.Add(ap.apontador);
+                }
+            }
+
+            return r;
+        }
+
+        public List<String> GetEquipesPorApontador(String _apontador)
+        {
+            List<String> r = new List<String>();
+            foreach(SingleApropriadoPorApontadorData ap in data)
+            {
+                if ((r.IndexOf(ap.equipe) == -1) && (ap.apontador == _apontador))
+                {
+                    r.Add(ap.equipe);
+                }
+            }
+            return r;
+        }
+
+        public List<SingleApropriadoPorApontadorData> GetApropriadosPorEquipe(String _EquipeNome)
+        {
+            List<SingleApropriadoPorApontadorData> r = new List<SingleApropriadoPorApontadorData>();
+            foreach (SingleApropriadoPorApontadorData ap in data)
+            {
+                if(ap.equipe == _EquipeNome)
+                {
+                    r.Add(ap);
+                }
+            }
+            return r;
+        }
+
+        public List<SingleApropriadoPorApontadorData> GetAllApropriadosPorApontador(String _apontador)
+        {
+            List<SingleApropriadoPorApontadorData> r = new List<SingleApropriadoPorApontadorData>();
+            foreach (SingleApropriadoPorApontadorData ap in data)
+            {
+                if (ap.apontador == _apontador)
+                {
+                    r.Add(ap);
+                }
+            }
+            return r;
+        }
+
+    }
+    
     public class HmCadTrabManData
     {
         public Dictionary<String, decimal> hmcadtrab = new Dictionary<string, decimal>();

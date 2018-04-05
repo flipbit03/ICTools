@@ -4,27 +4,27 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{01FBBA51-F3EB-461A-AF04-BD016B0AAA4F}</ProjectGuid>
+    <ProjectGuid>{412E9BDF-2A2E-43E3-A74F-F9F8997E8711}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HmCadTrabMan</RootNamespace>
-    <AssemblyName>HmCadTrabMan</AssemblyName>
+    <RootNamespace>ApropriadosPorApontador</RootNamespace>
+    <AssemblyName>ApropriadosPorApontador</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\ncp-arquivos\A-Public\IC\ICC\Cadu\Aplicativos ICC\HmCadTrabMan\</PublishUrl>
+    <PublishUrl>\\ncp-arquivos\A-Public\IC\ICC\Cadu\Aplicativos ICC\ApropriadosPorApontador\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>\\ncp-arquivos\A-Public\IC\ICC\Cadu\Aplicativos ICC\HmCadTrabMan\</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -50,10 +50,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>51DD8C34A12304683865B5D8F23A4AF157C2E13C</ManifestCertificateThumbprint>
+    <ApplicationIcon>ApropriadosPorApontador.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>HmCadTrabMan_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestCertificateThumbprint>808E722F01E623889DC9C2F65AD3348F8AABE30D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ApropriadosPorApontador_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -94,7 +97,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="HmCadTrabMan_TemporaryKey.pfx" />
+    <None Include="ApropriadosPorApontador_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,6 +107,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AssortedUtilities\AssortedUtilities.csproj">
+      <Project>{46d84be4-18e5-47a4-91b1-882b339b4138}</Project>
+      <Name>AssortedUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NCPControleProducaoDAO\NCPControleProducaoDAO.csproj">
+      <Project>{139e90fc-540d-43a3-8945-ffb4f9947447}</Project>
+      <Name>NCPControleProducaoDAO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApropriadosPorApontador.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
@@ -126,16 +142,6 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AssortedUtilities\AssortedUtilities.csproj">
-      <Project>{46d84be4-18e5-47a4-91b1-882b339b4138}</Project>
-      <Name>AssortedUtilities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NCPControleProducaoDAO\NCPControleProducaoDAO.csproj">
-      <Project>{139e90fc-540d-43a3-8945-ffb4f9947447}</Project>
-      <Name>NCPControleProducaoDAO</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

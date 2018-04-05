@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssortedUtilities", "Assort
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{1486589B-A5C6-43D3-BF68-C55BAE8FECCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApropriadosPorApontador", "ApropriadosPorApontador\ApropriadosPorApontador.csproj", "{412E9BDF-2A2E-43E3-A74F-F9F8997E8711}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{46D84BE4-18E5-47A4-91B1-882B339B4138}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46D84BE4-18E5-47A4-91B1-882B339B4138}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46D84BE4-18E5-47A4-91B1-882B339B4138}.Release|Any CPU.Build.0 = Release|Any CPU
+		{412E9BDF-2A2E-43E3-A74F-F9F8997E8711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412E9BDF-2A2E-43E3-A74F-F9F8997E8711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{412E9BDF-2A2E-43E3-A74F-F9F8997E8711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412E9BDF-2A2E-43E3-A74F-F9F8997E8711}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

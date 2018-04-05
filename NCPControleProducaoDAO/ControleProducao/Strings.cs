@@ -127,5 +127,40 @@ namespace ControleProducaoDAOS.Strings
                 order by anoReferencia desc, mesReferencia desc;";
         }
 
+        public static String sql_apropriadosporapontador()
+        {
+            return @"
+                    with EquipeLista 
+                    as
+                    (
+	                    select
+		                    e.matricula, e.nome, f.nome funcao, e.fkEquipe, p.fkApontador
+	                    from 
+		                    Empregado e join Equipe p on e.fkEquipe = p.pkEquipe,
+		                    Situacao s,
+		                    Funcao f
+	                    where
+		                    e.fkSituacao = s.pkSituacao
+		                    and s.nome = 'Ativo'
+		                    and e.fkFuncao = f.pkFuncao
+
+                    )
+                    select 
+	                    eql.matricula, eql.nome, eql.funcao, e.apelido apontador, eq.nome nome_da_equipe
+                    from 
+	                    EquipeLista eql,
+	                    Equipe eq left join Empregado e on eq.fkApontador = e.pkEmpregado
+                    where 
+	                    eql.fkEquipe = eq.pkEquipe
+	                    and eq.fkApontador in (
+			                    -- Apenas apontadores de producao
+			                    select e.pkEmpregado from Empregado e, Funcao f
+			                    where e.fkFuncao = f.pkFuncao
+			                    and f.nome like '%APONT. PRODUCAO%')
+
+                    order by
+	                    Apontador, Nome_da_Equipe, eql.matricula;";
+        }
+
     }
 }
