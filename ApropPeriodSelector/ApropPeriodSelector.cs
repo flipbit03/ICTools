@@ -45,7 +45,7 @@ namespace ApropPeriodSelector
             List<PeriodoData> periodos = dao.ListaPeriodosApropriacao();
 
             comboBox1.DataSource = periodos;
-            comboBox1.DisplayMember = "ReprSimples";
+            comboBox1.DisplayMember = "Repr1";
         } 
     }
 }

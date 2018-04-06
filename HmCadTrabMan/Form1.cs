@@ -31,7 +31,6 @@ namespace HmCadTrabMan
         private void Form1_Load(object sender, EventArgs e)
         {
             apropPeriodSelectorControl1.Connect();
-            apropPeriodSelectorControl1.DisplayMember = "Repr1";
         }
 
 
