@@ -24,7 +24,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\ncp-arquivos\A-Public\IC\ICC\Cadu\Aplicativos ICC\HmCadTrabMan\</InstallUrl>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -131,6 +131,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApropPeriodSelector\ApropPeriodSelector.csproj">
+      <Project>{2c668a22-8b9f-4478-8bea-ea726f223e41}</Project>
+      <Name>ApropPeriodSelector</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AssortedUtilities\AssortedUtilities.csproj">
       <Project>{46d84be4-18e5-47a4-91b1-882b339b4138}</Project>
       <Name>AssortedUtilities</Name>

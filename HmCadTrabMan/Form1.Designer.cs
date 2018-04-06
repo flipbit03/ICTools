@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.apropPeriodSelectorControl1 = new ApropPeriodSelector.ApropPeriodSelectorControl();
             this.SuspendLayout();
             // 
             // textBox1
@@ -41,32 +41,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(12, 42);
+            this.textBox1.Location = new System.Drawing.Point(10, 74);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(848, 409);
+            this.textBox1.Size = new System.Drawing.Size(848, 404);
             this.textBox1.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 10);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(584, 26);
-            this.comboBox1.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(602, 10);
+            this.button1.Location = new System.Drawing.Point(602, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 26);
+            this.button1.Size = new System.Drawing.Size(75, 56);
             this.button1.TabIndex = 2;
             this.button1.Text = "Gerar";
             this.button1.UseVisualStyleBackColor = true;
@@ -77,20 +65,31 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Location = new System.Drawing.Point(683, 10);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(177, 26);
+            this.button2.Size = new System.Drawing.Size(177, 58);
             this.button2.TabIndex = 3;
             this.button2.Text = "Copiar p/ Área de Transf.";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // apropPeriodSelectorControl1
+            // 
+            this.apropPeriodSelectorControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.apropPeriodSelectorControl1.Location = new System.Drawing.Point(10, 8);
+            this.apropPeriodSelectorControl1.Margin = new System.Windows.Forms.Padding(5);
+            this.apropPeriodSelectorControl1.MinimumSize = new System.Drawing.Size(336, 58);
+            this.apropPeriodSelectorControl1.Name = "apropPeriodSelectorControl1";
+            this.apropPeriodSelectorControl1.Size = new System.Drawing.Size(584, 58);
+            this.apropPeriodSelectorControl1.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 463);
+            this.ClientSize = new System.Drawing.Size(870, 490);
+            this.Controls.Add(this.apropPeriodSelectorControl1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(886, 502);
@@ -105,9 +104,9 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private ApropPeriodSelector.ApropPeriodSelectorControl apropPeriodSelectorControl1;
     }
 }
 

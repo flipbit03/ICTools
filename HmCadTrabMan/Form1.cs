@@ -30,10 +30,8 @@ namespace HmCadTrabMan
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<PeriodoData> periodos = dao.ListaPeriodosApropriacao();
-
-            comboBox1.DataSource = periodos;
-            comboBox1.DisplayMember = "Repr1";
+            apropPeriodSelectorControl1.Connect();
+            apropPeriodSelectorControl1.DisplayMember = "Repr1";
         }
 
 
@@ -58,7 +56,7 @@ namespace HmCadTrabMan
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PeriodoData x = (PeriodoData)comboBox1.SelectedItem;
+            PeriodoData x = (PeriodoData)apropPeriodSelectorControl1.selectedperiod;
 
             HmCadTrabManData dados = dao.HmCadTrabMan(x.idPeriodo.GetValueOrDefault());
 

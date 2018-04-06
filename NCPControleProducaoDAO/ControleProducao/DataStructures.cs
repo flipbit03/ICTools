@@ -115,12 +115,32 @@ namespace ControleProducaoDAOS.DataStructures
         public int? mesReferencia { get; set; }
         public int? anoReferencia { get; set; }
 
+        private String[] meses = { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
+                                     "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" };
+
+        public String ReprSimples
+        {
+            get
+            {
+
+                StringBuilder x = new StringBuilder();
+
+                String mes_ano = String.Format("{0}/{1} :", meses[mesReferencia.GetValueOrDefault() - 1].Substring(0,3), anoReferencia.GetValueOrDefault());
+
+                String fechado = dataFechamento.HasValue ? "Fechado" : "Aberto";
+
+                x.Append(mes_ano);
+                x.Append(String.Format(" {0} até {1}", String.Format("{0:dd/MM/yyyy}", dataInicio), String.Format("{0:dd/MM/yyyy}", dataFim)));
+                x.Append(String.Format(" [{0}]", fechado));
+
+                return x.ToString();
+            }
+        }
+
         public String Repr1
         {
             get
             {
-                String[] meses = { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
-                                     "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" };
 
                 StringBuilder x = new StringBuilder();
 
