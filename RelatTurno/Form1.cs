@@ -17,14 +17,14 @@ namespace RelatTurno
 {
     public partial class Form1 : AppVersionForm
     {
-        private NCPHoraExtraDevDAO dao;
+        private HoraExtraDevDAO dao;
 
         public Form1()
         {
             InitializeComponent();
 
             // Connect to database
-            dao = new NCPHoraExtraDevDAO();
+            dao = new HoraExtraDevDAO();
 
             this.Text = String.Format("Lista de 2o e 1o Turno para Digitação [{0}]", GetAppVersion());
         }

@@ -22,10 +22,10 @@ namespace ControleProducaoDAOS
         public string os { get; set; }
     }
 
-    public class NCPHoraExtraDevDAO : GenericDAO
+    public class HoraExtraDevDAO : GenericDAO
     {
         // Constructor (Connect to Database)
-        public NCPHoraExtraDevDAO() : base("afrodite", "HoraExtraDev") { }
+        public HoraExtraDevDAO() : base("afrodite", "HoraExtraDev") { }
 
         #region Pé de Galinha
 
