@@ -67,9 +67,9 @@ namespace ApropriadosPorApontador
 
             relat.AppendFormat("Gerado: {0}{1}", now.ToString(@"dd/MMM/yy"), nl);
 
-            List<String> apontadores = dados.GetApontadores();
+            List<Apontador> apontadores = dados.GetApontadores();
 
-            foreach(String apontador in apontadores)
+            foreach(Apontador apontador in apontadores)
             {
                 List<SingleApropriadoPorApontadorData> todos = dados.GetAllApropriadosPorApontador(apontador);
 
@@ -119,9 +119,9 @@ namespace ApropriadosPorApontador
 
             relat.AppendFormat("Gerado: {0}{1}", now.ToString(@"dd/MMM/yy"), nl);
 
-            List<String> apontadores = dados.GetApontadores();
+            List<Apontador> apontadores = dados.GetApontadores();
 
-            foreach (String apontador in apontadores)
+            foreach (Apontador apontador in apontadores)
             {
                 List<SingleApropriadoPorApontadorData> todos = dados.GetAllApropriadosPorApontador(apontador);
 

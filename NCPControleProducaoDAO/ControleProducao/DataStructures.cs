@@ -10,34 +10,71 @@ namespace ControleProducaoDAOS.DataStructures
         public int matricula { get; set; }
         public String nome { get; set; }
         public String funcao { get; set; }
-        public String apontador { get; set; }
+        public String matr_apontador { get; set; }
+        public String nome_apontador { get; set; }
         public String equipe { get; set; }
+        public String descricao_equipe { get; set; }
+    }
+
+    public class Apontador
+    {
+        public String matricula { get; set; }
+        public String nome { get; set; }
+
+        public Apontador(String _matricula, String _nome)
+        {
+            matricula = _matricula;
+            nome = _nome;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0}", nome);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if(obj is Apontador)
+            {
+                Apontador _obj = (Apontador)obj;
+
+                if( (matricula == _obj.matricula) && (nome == _obj.nome) ) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            return base.Equals(obj);
+        }
     }
 
     public class ApropriadosPorApontadorData
     {
         public List<SingleApropriadoPorApontadorData> data = new List<SingleApropriadoPorApontadorData>();
 
-        public List<String> GetApontadores()
+        public List<Apontador> GetApontadores()
         {
-            List<String> r = new List<String>();
+            List<Apontador> r = new List<Apontador>();
             foreach(SingleApropriadoPorApontadorData ap in data)
             {
-                if (r.IndexOf(ap.apontador) == -1)
+                Apontador newap = new Apontador(ap.matr_apontador, ap.nome_apontador);
+
+                if (!r.Contains(newap))
                 {
-                    r.Add(ap.apontador);
+                    r.Add(newap);
                 }
             }
 
             return r;
         }
 
-        public List<String> GetEquipesPorApontador(String _apontador)
+        public List<String> GetEquipesPorApontador(Apontador _apontador)
         {
             List<String> r = new List<String>();
             foreach(SingleApropriadoPorApontadorData ap in data)
             {
-                if ((r.IndexOf(ap.equipe) == -1) && (ap.apontador == _apontador))
+                if ((r.IndexOf(ap.equipe) == -1) && (ap.nome_apontador == _apontador.nome))
                 {
                     r.Add(ap.equipe);
                 }
@@ -58,12 +95,12 @@ namespace ControleProducaoDAOS.DataStructures
             return r;
         }
 
-        public List<SingleApropriadoPorApontadorData> GetAllApropriadosPorApontador(String _apontador)
+        public List<SingleApropriadoPorApontadorData> GetAllApropriadosPorApontador(Apontador _apontador)
         {
             List<SingleApropriadoPorApontadorData> r = new List<SingleApropriadoPorApontadorData>();
             foreach (SingleApropriadoPorApontadorData ap in data)
             {
-                if (ap.apontador == _apontador)
+                if (ap.nome_apontador == _apontador.nome)
                 {
                     r.Add(ap);
                 }

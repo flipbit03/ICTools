@@ -30,7 +30,7 @@ namespace ControleProducaoDAOS
                 ap.matricula = Convert.ToInt32(dr[0]);
                 ap.nome = Convert.ToString(dr[1]);
                 ap.funcao = Convert.ToString(dr[2]);
-                ap.apontador = Convert.ToString(dr[3]);
+                ap.nome_apontador = Convert.ToString(dr[3]);
                 ap.equipe = Convert.ToString(dr[4]);
 
                 r.data.Add(ap);

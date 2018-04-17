@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinForm User Controls", "Wi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChickenFoot", "ChickenFoot\ChickenFoot.csproj", "{22D7B89F-509D-4C1B-A4EA-A43C7A5B628B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Command Line Tools", "Command Line Tools", "{ED6AC746-7E51-47A7-9360-F8D95F2AE96D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisapropHelper", "SisapropHelper\SisapropHelper.csproj", "{B74FD475-14C0-40E3-9231-B75913883FBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +59,10 @@ Global
 		{22D7B89F-509D-4C1B-A4EA-A43C7A5B628B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22D7B89F-509D-4C1B-A4EA-A43C7A5B628B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22D7B89F-509D-4C1B-A4EA-A43C7A5B628B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B74FD475-14C0-40E3-9231-B75913883FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B74FD475-14C0-40E3-9231-B75913883FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B74FD475-14C0-40E3-9231-B75913883FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B74FD475-14C0-40E3-9231-B75913883FBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,5 +72,6 @@ Global
 		{46D84BE4-18E5-47A4-91B1-882B339B4138} = {1486589B-A5C6-43D3-BF68-C55BAE8FECCA}
 		{2C668A22-8B9F-4478-8BEA-EA726F223E41} = {0CEE20A3-C986-487C-8A0D-A93514F7E33E}
 		{0CEE20A3-C986-487C-8A0D-A93514F7E33E} = {1486589B-A5C6-43D3-BF68-C55BAE8FECCA}
+		{B74FD475-14C0-40E3-9231-B75913883FBF} = {ED6AC746-7E51-47A7-9360-F8D95F2AE96D}
 	EndGlobalSection
 EndGlobal

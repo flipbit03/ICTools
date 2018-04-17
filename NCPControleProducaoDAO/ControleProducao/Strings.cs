@@ -162,5 +162,40 @@ namespace ControleProducaoDAOS.Strings
 	                    Apontador, Nome_da_Equipe, eql.matricula;";
         }
 
+        public static String sql_apropriadosporautoapropriador()
+        {
+            return @"with EquipeLista 
+                    as
+                    (
+	                    select
+		                    e.matricula, e.nome, f.nome funcao, e.fkEquipe, p.fkApontador
+	                    from 
+		                    Empregado e join Equipe p on e.fkEquipe = p.pkEquipe,
+		                    Situacao s,
+		                    Funcao f
+	                    where
+		                    e.fkSituacao = s.pkSituacao
+		                    and s.nome = 'Ativo'
+		                    and e.fkFuncao = f.pkFuncao
+
+                    )
+                    select 
+	                    eql.matricula, eql.nome, eql.funcao, 
+	                    e.matricula matr_apontador, e.nome apontador, 
+	                    eq.nome nome_da_equipe, eq.descricao descricao_equipe
+                    from 
+	                    EquipeLista eql,
+	                    Equipe eq left join Empregado e on eq.fkApontador = e.pkEmpregado
+                    where 
+	                    eql.fkEquipe = eq.pkEquipe
+	                    and eq.fkApontador in (
+			                    -- Apenas não-apontadores de producao (auto apropriados)
+			                    select e.pkEmpregado from Empregado e, Funcao f
+			                    where e.fkFuncao = f.pkFuncao
+			                    and f.nome not like '%APONT. PRODUCAO%')
+                    order by
+	                    Apontador, Nome_da_Equipe, eql.matricula;";
+        }
+
     }
 }
