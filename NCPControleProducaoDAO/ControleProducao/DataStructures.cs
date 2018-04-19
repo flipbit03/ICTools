@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace ControleProducaoDAOS.DataStructures
@@ -46,6 +47,19 @@ namespace ControleProducaoDAOS.DataStructures
             }
 
             return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            int sum = 0;
+            foreach (char a in nome)
+            {
+                sum += (int)a;
+            }
+
+            sum += Convert.ToInt32(matricula);
+
+            return sum;
         }
     }
 

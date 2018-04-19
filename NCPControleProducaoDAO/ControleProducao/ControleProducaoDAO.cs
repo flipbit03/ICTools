@@ -38,6 +38,35 @@ namespace ControleProducaoDAOS
 
             return r;
         }
+
+        public ApropriadosPorApontadorData ApropriadosPorAutoApropriador()
+        {
+            ApropriadosPorApontadorData r = new ApropriadosPorApontadorData();
+
+            String sqlcode = CPStrings.sql_apropriadosporautoapropriador();
+
+            DataSet results = ExecuteSQLStatement(sqlcode, "ApropriadosPorAutoApropriador");
+
+            // Populate Data
+            foreach (DataRow dr in results.Tables[0].Rows)
+            {
+                SingleApropriadoPorApontadorData ap = new SingleApropriadoPorApontadorData();
+
+                ap.matricula = Convert.ToInt32(dr[0]);
+                ap.nome = Convert.ToString(dr[1]);
+                ap.funcao = Convert.ToString(dr[2]);
+                ap.matr_apontador = Convert.ToString(dr[3]);
+                ap.nome_apontador = Convert.ToString(dr[4]);
+                ap.equipe = Convert.ToString(dr[5]);
+                ap.descricao_equipe = Convert.ToString(dr[6]);
+
+                r.data.Add(ap);
+            }
+
+            return r;
+        }
+        
+
         
         public HmCadTrabManData HmCadTrabMan(int _idPeriodo)
         {
