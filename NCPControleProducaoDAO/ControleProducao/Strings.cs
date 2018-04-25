@@ -168,7 +168,7 @@ namespace ControleProducaoDAOS.Strings
                     as
                     (
 	                    select
-		                    e.matricula, e.nome, f.nome funcao, e.fkEquipe, p.fkApontador
+		                    e.matricula, e.nome, e.apelido, f.nome funcao, e.fkEquipe, p.fkApontador
 	                    from 
 		                    Empregado e join Equipe p on e.fkEquipe = p.pkEquipe,
 		                    Situacao s,
@@ -180,7 +180,7 @@ namespace ControleProducaoDAOS.Strings
 
                     )
                     select 
-	                    eql.matricula, eql.nome, eql.funcao, 
+	                    eql.matricula, eql.nome, eql.apelido, eql.funcao, 
 	                    e.matricula matr_apontador, e.nome apontador, 
 	                    eq.nome nome_da_equipe, eq.descricao descricao_equipe
                     from 

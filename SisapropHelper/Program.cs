@@ -21,10 +21,12 @@ namespace SisapropHelper
 
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
             CommandLine.Parser.Default.ParseArguments<Options>(args).WithParsed<Options>(opts =>
             {
                 String s = GenerateMapOutput(opts.mapname);
-                System.Console.Write(s);
+                Console.Write(s);
             });
             
         }
@@ -46,8 +48,10 @@ namespace SisapropHelper
                 {
                     foreach(SingleApropriadoPorApontadorData a in data.GetApropriadosPorEquipe(nomeequipe))
                     {
-                        retval.AppendFormat("{0}|{1}|{2}|{3}|{4}|{5}|{6}{7}",
-                            a.matricula, a.nome, a.funcao, a.matr_apontador, a.nome_apontador, a.equipe, a.descricao_equipe, Environment.NewLine);
+                        retval.AppendFormat("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}{8}",
+                            a.matricula, a.nome, a.apelido, a.funcao, 
+                            a.matr_apontador, a.nome_apontador, a.equipe, a.descricao_equipe, 
+                            Environment.NewLine);
                     }
                 }
             }

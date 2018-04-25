@@ -10,6 +10,7 @@ namespace ControleProducaoDAOS.DataStructures
     {
         public int matricula { get; set; }
         public String nome { get; set; }
+        public String apelido { get; set; }
         public String funcao { get; set; }
         public String matr_apontador { get; set; }
         public String nome_apontador { get; set; }
