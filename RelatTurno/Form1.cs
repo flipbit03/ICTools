@@ -33,12 +33,38 @@ namespace RelatTurno
         {
             qtdlabel.Text = "xx";
 
-            qtdlabel.Text = dao.Total2o1oTurno(dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year).ToString();
+            if(TurnoRadioButton.Checked)
+            {
+                qtdlabel.Text = dao.GetEscaladosEmTurnos(dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year)
+                    .Tables[0].Rows.Count.ToString();
+            } 
+            else if(HExtraRadioButton.Checked)
+            {
+                qtdlabel.Text = dao.GetEscaladosEmHoraExtra(dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year)
+                    .Tables[0].Rows.Count.ToString();
+            }
+            else
+            {
+                qtdlabel.Text = "ER";
+            }
+
         }
 
         private void gerabutton_Click(object sender, EventArgs e)
         {
-            DataSet datatbl = dao.GetEscaladosEmTurnos(dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year);
+            DataSet datatbl;
+
+            // Update Counter
+            button1_Click(this, null);
+
+            if (TurnoRadioButton.Checked)
+            {
+                datatbl = dao.GetEscaladosEmTurnos(dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year);
+            }
+            else 
+            {   // Hora Extra
+                datatbl = dao.GetEscaladosEmHoraExtra(dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year);
+            }
 
             ReportDataSource datasource = new ReportDataSource("TurnoRowDataset",datatbl.Tables[0]);
 
@@ -54,7 +80,7 @@ namespace RelatTurno
             reportViewer1.SetPageSettings(ps);
 
             reportViewer1.ProcessingMode = ProcessingMode.Local;
-            reportViewer1.LocalReport.ReportPath = "report_escalados_em_turno.rdlc";
+            reportViewer1.LocalReport.ReportPath = "Relatorio.rdlc";
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(datasource);
             reportViewer1.LocalReport.Refresh();
@@ -71,5 +97,6 @@ namespace RelatTurno
         {
 
         }
-    }
+
+     }
 }
