@@ -12,6 +12,7 @@ namespace ControleProducaoDAOS
 
     public class TurnoRow
     {
+        public string tipo { get; set; }
         public DateTime di { get; set; }
         public DateTime df { get; set; }
         public string turno { get; set; }
@@ -132,7 +133,7 @@ namespace ControleProducaoDAOS
         public DataSet GetEscaladosEmTurnos(int _dia, int _mes, int _ano)
         {
             String sqlcode = String.Format(@"
-                select 
+                select tipo,
 	                dataInicio di, dataFim df, DESCRICAOTURNO turno, 
 	                matEmpregado matr, Nome nome, CCUSTO depto, CARGO cargo, 
 	                PROJETO_DESC os  
@@ -141,6 +142,26 @@ namespace ControleProducaoDAOS
                 where 
 	                tipo = 'Turno' and
 	                pkTurno in (2,1) and
+	                fl_ativo = 'S' and
+	                dataInicio = '{0}-{1}-{2}'
+                order by
+	                dataInicio, pkTurno, CARGO, matEmpregado;
+                                                    ", _ano, _mes, _dia);
+
+            return this.ExecuteSQLStatement(sqlcode, "TurnoRowDataset");
+        }
+
+        public DataSet GetEscaladosEmHoraExtra(int _dia, int _mes, int _ano)
+        {
+            String sqlcode = String.Format(@"
+                select tipo,
+	                dataInicio di, dataFim df, DESCRICAOTURNO turno, 
+	                matEmpregado matr, Nome nome, CCUSTO depto, CARGO cargo, 
+	                PROJETO_DESC os  
+                from 
+	                VW_HORA_EXTRA_INDUSTRIAL 
+                where 
+                    tipo = 'Hora Extra' and 
 	                fl_ativo = 'S' and
 	                dataInicio = '{0}-{1}-{2}'
                 order by

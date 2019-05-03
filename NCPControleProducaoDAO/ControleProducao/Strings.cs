@@ -165,44 +165,45 @@ namespace ControleProducaoDAOS.Strings
         public static String sql_apropriadosporautoapropriador()
         {
             return @"
-with EquipeLista 
-as
-(
-	select
-		e.matricula, e.nome, e.apelido, f.nome funcao, e.fkEquipe, p.fkApontador
-	from 
-		Empregado e 
-			join Equipe p on e.fkEquipe = p.pkEquipe 
-			join TipoMaoObra tmo on e.fkTipoMaoObra = tmo.pkTipoMaoObra,
-		Situacao s,
-		Funcao f
-	where
-		-- junte função
-		e.fkFuncao = f.pkFuncao and
+-- Lista todos os funcionários ""ATIVOS"" que estão em equipes AUTO-APROPRIADAS
+-- Autor: Carlos Eduardo Coelho Baptista Shinagawa
 
-		-- somente mão de obra ativa
-		e.fkSituacao = s.pkSituacao and
-		s.nome = 'Ativo'
+select
+  e.matricula matricula, e.nome nome, e.apelido, f.nome funcao, 
+  e_a.matricula matr_apontador,   e_a.nome apontador,
+  e_r.matricula matr_responsavel, e_r.nome responsavel,
+  eq.nome nome_da_equipe, eq.descricao descricao_equipe
 
-		-- Remova mão de obra não-apropriada
-		and tmo.codigo <> 2
-)
-select 
-	eql.matricula, eql.nome, eql.apelido, eql.funcao, 
-	e.matricula matr_apontador, e.nome apontador, 
-	eq.nome nome_da_equipe, eq.descricao descricao_equipe
 from 
-	EquipeLista eql,
-	Equipe eq left join Empregado e on eq.fkApontador = e.pkEmpregado
-where 
-	eql.fkEquipe = eq.pkEquipe
-	and eq.fkApontador in (
-			-- Apenas não-apontadores de producao (auto apropriados)
-			select e.pkEmpregado from Empregado e, Funcao f
-			where e.fkFuncao = f.pkFuncao
-			and f.nome not like '%APONT. PRODUCAO%')
+
+Empregado e
+	join Funcao f on e.fkFuncao = f.pkFuncao
+	join Situacao s on e.fkSituacao = s.pkSituacao
+	join TipoMaoObra tmo on e.fkTipoMaoObra = tmo.pkTipoMaoObra
+	join Equipe eq on e.fkEquipe = eq.pkEquipe
+		left join Empregado e_r on eq.fkResponsavel = e_r.pkEmpregado
+		left join Empregado e_a on eq.fkApontador   = e_a.pkEmpregado
+
+where
+
+-- Precisa estar numa equipe
+e.fkEquipe = eq.pkEquipe and
+
+-- Somente mão de obra ativa
+s.nome = 'Ativo' and
+
+-- Remova mão de obra não-apropriada
+tmo.codigo <> 2 and
+
+-- Remova apontadores de produção.
+eq.fkApontador in (
+	-- Apenas não-apontadores de producao (auto apropriados)
+	select e.pkEmpregado from Empregado e, Funcao f
+		where e.fkFuncao = f.pkFuncao
+		and f.nome not like '%APONT. PRODUCAO%')
+
 order by
-	Apontador, Nome_da_Equipe, eql.matricula;";
+	Apontador, Nome_da_Equipe, e.matricula;";
         }
 
     }

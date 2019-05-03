@@ -14,6 +14,8 @@ namespace ControleProducaoDAOS.DataStructures
         public String funcao { get; set; }
         public String matr_apontador { get; set; }
         public String nome_apontador { get; set; }
+        public String matr_responsavel { get; set; }
+        public String nome_responsavel { get; set; }
         public String equipe { get; set; }
         public String descricao_equipe { get; set; }
     }

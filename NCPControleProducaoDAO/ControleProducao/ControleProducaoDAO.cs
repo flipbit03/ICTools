@@ -58,8 +58,10 @@ namespace ControleProducaoDAOS
                 ap.funcao = Convert.ToString(dr[3]);
                 ap.matr_apontador = Convert.ToString(dr[4]);
                 ap.nome_apontador = Convert.ToString(dr[5]);
-                ap.equipe = Convert.ToString(dr[6]);
-                ap.descricao_equipe = Convert.ToString(dr[7]);
+                ap.matr_responsavel = Convert.ToString(dr[6]);
+                ap.nome_responsavel = Convert.ToString(dr[7]);
+                ap.equipe = Convert.ToString(dr[8]);
+                ap.descricao_equipe = Convert.ToString(dr[9]);
 
                 r.data.Add(ap);
             }
