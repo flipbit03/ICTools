@@ -130,8 +130,21 @@ namespace ControleProducaoDAOS
             return this.ExecuteScalarIntSQLStatement(sqlcode);
         }
 
-        public DataSet GetEscaladosEmTurnos(int _dia, int _mes, int _ano)
+        public DataSet GetEscaladosEmTurnos(DateTime datainicial, DateTime? datafinal)
         {
+            // Prepara o fragmento SQL com apenas datainiical.
+            String datesqlcode;
+
+            datesqlcode = String.Format(@"dataInicio = '{0}-{1}-{2}'", datainicial.Year, datainicial.Month, datainicial.Day);
+
+            if (datafinal.HasValue)
+            {
+                datesqlcode = String.Format(@"dataInicio between '{0}-{1}-{2}' and '{3}-{4}-{5}'",
+                    datainicial.Year, datainicial.Month, datainicial.Day,
+                    datafinal.Value.Year, datafinal.Value.Month, datafinal.Value.Day);
+            }
+
+
             String sqlcode = String.Format(@"
                 select tipo,
 	                dataInicio di, dataFim df, DESCRICAOTURNO turno, 
@@ -143,16 +156,26 @@ namespace ControleProducaoDAOS
 	                tipo = 'Turno' and
 	                pkTurno in (2,1) and
 	                fl_ativo = 'S' and
-	                dataInicio = '{0}-{1}-{2}'
+	                {0}
                 order by
-	                dataInicio, pkTurno, CARGO, matEmpregado;
-                                                    ", _ano, _mes, _dia);
+	                dataInicio, pkTurno, CARGO, matEmpregado;", datesqlcode);
 
             return this.ExecuteSQLStatement(sqlcode, "TurnoRowDataset");
         }
 
-        public DataSet GetEscaladosEmHoraExtra(int _dia, int _mes, int _ano)
+        public DataSet GetEscaladosEmHoraExtra(DateTime datainicial, DateTime? datafinal)
         {
+            String datesqlcode;
+
+            datesqlcode = String.Format(@"dataInicio = '{0}-{1}-{2}'", datainicial.Year, datainicial.Month, datainicial.Day);
+
+            if (datafinal.HasValue)
+            {
+                datesqlcode = String.Format(@"dataInicio between '{0}-{1}-{2}' and '{3}-{4}-{5}'",
+                    datainicial.Year, datainicial.Month, datainicial.Day,
+                    datafinal.Value.Year, datafinal.Value.Month, datafinal.Value.Day);
+            }
+
             String sqlcode = String.Format(@"
                 select tipo,
 	                dataInicio di, dataFim df, DESCRICAOTURNO turno, 
@@ -163,10 +186,9 @@ namespace ControleProducaoDAOS
                 where 
                     tipo = 'Hora Extra' and 
 	                fl_ativo = 'S' and
-	                dataInicio = '{0}-{1}-{2}'
+	                {0}
                 order by
-	                dataInicio, pkTurno, CARGO, matEmpregado;
-                                                    ", _ano, _mes, _dia);
+	                dataInicio, pkTurno, CARGO, matEmpregado;", datesqlcode);
 
             return this.ExecuteSQLStatement(sqlcode, "TurnoRowDataset");
         }
