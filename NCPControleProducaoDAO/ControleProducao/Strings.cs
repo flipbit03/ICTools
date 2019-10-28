@@ -124,7 +124,8 @@ namespace ControleProducaoDAOS.Strings
                 select 
                 pkPeriodo, dataInicio, dataFim, dataFechamento, mesReferencia, anoReferencia 
                 from PeriodoApropriacao
-                order by anoReferencia desc, mesReferencia desc;";
+                --order by anoReferencia desc, mesReferencia desc;
+                order by pkPeriodo";
         }
 
         public static String sql_apropriadosporapontador()
